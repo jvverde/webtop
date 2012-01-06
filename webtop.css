@@ -1,0 +1,340 @@
+html, body {
+	margin: 0;		/* Remove body margin/padding */
+	padding: 0;
+	overflow: hidden;	/* Remove scroll bars on browser window */	
+	width:100%;
+	height:100%;
+	font-family: sans-serif,Verdana, Arial, Helvetica;
+	font-size: 10px;
+}
+
+#webtop{
+	position:absolute;
+	top:0px;
+	bottom:0px;
+	left:0px;
+	right:0px;
+	width:100%;
+	height:100%;
+	margin:0px;
+	padding:0px;
+	overflow:hidden;
+	background-color:#333;
+	/*z-index:1;*/
+}
+#webtop_workspace,#webtop_wallpaper{
+	margin:0px;
+	padding:0px;
+	position:absolute;
+	background-color:transparent;
+	top:0px;
+	bottom:28px; /* 24 from takbar height + 2 from taskbar top-border + 2 */
+	right:0px;
+	left:0px;
+	overflow:hidden;
+	/*border:1px blue solid; remover mais tarde*/
+}
+#webtop_workspace{
+	/*z-index:2;*/
+}
+#webtop_wallpaper{
+	/*z-index:1;*/
+}
+#webtop_taskbar{
+	position:absolute;
+	left:0px;
+	bottom:0px;
+	height:24px;
+	width:100%;
+	margin:0px;
+	padding:0px;
+	border-top-width:2px;
+	border-top-style:solid;
+	border-top-color:#ddd;
+	padding-bottom:2px;
+	background-color:#999;
+	z-index:65535; /*a taskbar fica à frente de tudo*/
+}
+#webtop_workspaceIcon{
+	position:absolute;
+	top:0px;
+	right:0px;
+	bottom:0px;
+	left:96px;
+	width:16px;
+	height:100%;
+	background-image:url('./images/workspace.png');
+	background-position: left center;
+	background-repeat: no-repeat;
+}
+#webtop_workspaceIcon:hover{
+	opacity:0.6;
+	filter:alpha(opacity=60);
+}
+#webtop_minimizebar{
+	position:absolute;
+	top:0px;
+	right:0px;
+	bottom:0px;
+	left:128px;
+	cursor:pointer;
+}
+.webtop_hover{
+	opacity:0.6;
+	filter:alpha(opacity=60);
+}
+
+/*start menu stuff */
+#webtop_loggedUser{
+	position:relative;
+	padding:4px 0px 4px 20px;
+	background-image:url('./images/user-green.png');
+	background-position: 0px 0px;
+	background-repeat: no-repeat;
+	width:100%;
+	color:#FFFFCC;
+}
+#webtop_startButton{
+	position:absolute;
+	left:0px;
+	top:0px;
+	background-image:url('./images/system-start.png');
+	background-position: 0px 0px;
+	background-repeat: no-repeat;
+	background-color: transparent;
+	height:24px;
+	/*padding:8px 0px 8px 28px;*/
+	padding-left:28px;
+	line-height:24px;
+	cursor:pointer;
+	margin-left:8px;
+	width:100px;
+	border-top-right-radius:8px;
+	-moz-border-radius-topright:8px;
+	border-top-left-radius:8px;
+	-moz-border-radius-topleft:8px;
+}
+#webtop_startMenu{
+	position:absolute;
+	padding:5px;
+	left:5px;
+	background-color:#666666;
+	border:2px solid #333333;
+	border-bottom-width:0px;
+	width:350px;
+	color:white;
+}
+#webtop_startMenu_leftPanel{
+	position:relative;
+	overflow:auto;
+	background-color:#cccccc;
+	height:300px;
+	width:200px;
+}
+.webtop_startMenuEntry, .webtop_minimize_all, .webtop_maximize_all{
+	padding:2px;
+	color:#FFFFCC;
+	margin:0px;
+	cursor:pointer;
+	height:16px;
+}
+.webtop_minimize_all, .webtop_maximize_all{
+	background-image:url('./images/action.png');
+}
+.webtop_startMenuEntry:hover, .webtop_minimize_all:hover, .webtop_maximize_all:hover{/* is not working */
+	opacity:0.6;
+	filter:alpha(opacity=60);
+}
+#webtop_startMenu_rightPanel{
+	position:absolute;
+	top:24px;
+	left:210px;
+	overflow:hidden;
+	background-color:transparent;
+	height:300px;
+	width:140px;
+}
+#webtop_logoutButton{
+	position:absolute;
+	bottom:0px;
+	left:0px;
+	background-image:url('./images/shutdown.png');
+	background-position: 0px 0px;
+	background-repeat: no-repeat;
+	background-color: transparent;
+	height:8px;
+	padding:8px 0px 8px 28px;
+	cursor:pointer;
+	margin:0px;
+	border-width:0px;
+}
+/* window stuff */
+.webtop_window{
+	position:absolute;
+	left:10px;
+	top:10px;
+	width:600px;
+	height:300px;
+	z-index:10;
+	background-color:#666;
+	color:#FFF;
+	border:1px solid white;
+	overflow:hidden;
+	border-radius:8px;
+	-moz-border-radius:8px;
+}
+.webtop_window.webtop_window_maximize{
+	left:0px;
+	bottom:0px;
+	right:0px;
+	top:0px;
+	width:100%;
+	height:100%;
+}
+.webtop_window.webtop_window_maximize>.ui-resizable-handle{
+	display:none;
+}
+.webtop_window.webtop_window_minimize{
+	display:none;
+}
+.webtop_window_tranfer{
+	border:2px dotted white;
+}
+.webtop_window_bar{
+	display:inline;
+	float:left;
+	margin:1px;
+	padding:0px;
+	background-color:#999;
+	border-style:solid;
+	border-width:2px;
+	border-top-color:#ddd;
+	border-right-color:#555;
+	border-bottom-color:#333;
+	border-left-color:#bbb;
+	border-radius:16px;
+	-moz-border-radius:16px;
+	color:#000;
+	height:18px;
+}
+.webtop_window_bar>div{
+	width:100px;
+	min-width:50px;
+	max-width:200px;
+	cursor:pointer;
+}
+div.webtop_window_bar:hover{
+	color:#fff;
+	background-color:#777;
+	cursor:pointer;
+}
+.webtop_window_bar.webtop_window_bar_selected{
+	color:#fff;
+	background-color:#666;
+	border-top-color:#333;
+	border-right-color:#bbb;
+	border-bottom-color:#ddd;
+	border-left-color:#555;
+}
+.webtop_window_header{
+	position:absolute;
+	right:0px;
+	left:0px;
+	top:0px;
+	bottom:auto;
+	height:22px;
+	width:100%;
+	background-color:#666;
+	overflow:hidden;
+	margin:0px;
+	padding:0px:
+	padding-left:5px:
+	color:#fff;
+	cursor:move;
+}
+.webtop_window_header, .webtop_window_header *{ /* the header and everything inside must have round corners */
+	border-top-right-radius:8px;
+	-moz-border-radius-topright:8px;
+	border-top-left-radius:8px;
+	-moz-border-radius-topleft:8px;
+}
+.webtop_window_top .webtop_window_header{
+	background-color:#ccc;
+	color:#000;
+}
+.webtop_window_body{
+	position:absolute;
+	right:0px;
+	left:0px;
+	top:22px;
+	bottom:0px;
+	width:100%;
+	height:auto;
+	/*background-color:#333; don't define any color. This element will receive it from ui-widget-content */
+	color:#FFC;
+	overflow:auto;
+	border-radius:8px;
+	-moz-border-radius:8px;
+}
+.webtop_window_drag.webtop_window > * {
+	display:none;
+}
+.webtop_window_drag.webtop_window {
+	border:3px #CCC dashed;
+	background-color:transparent;
+}
+.webtop_window_icon_close, .webtop_window_icon_maximize, .webtop_window_icon_minimize{
+	position:absolute;
+	top:0px;
+	cursor:pointer;
+	background-color:transparent;
+	background-repeat: no-repeat;
+	height:18px;
+	border:2px solid #999;
+	border-top-width:0px;
+	border-radius:0px;
+	-moz-border-radius:0px;
+	background-position: center center;
+}
+.webtop_window_icon_close{
+	right:8px;
+	width:22px;
+	background-image:url('./images/close.png');
+	border-bottom-right-radius:8px;
+	-moz-border-radius-bottomright:8px;
+	border-left-width:0px;
+}
+.webtop_window_icon_maximize{
+	right:32px;
+	width:20px;
+	background-image:url('./images/max.png');
+}
+.webtop_window_maximize .webtop_window_icon_maximize{
+	background-image:url('./images/restore.png');
+}
+.webtop_window_icon_minimize{
+	top:0px;
+	right:56px;
+	width:22px;
+	background-image:url('./images/min.png');
+	border-bottom-left-radius:8px;
+	-moz-border-radius-bottomleft:8px;
+	border-right-width:0px;
+}
+.webtop_icon{
+	margin:5px;
+	padding:5px;
+	width:64px;
+	height:74px;
+	overflow:hidden;
+	color:#CCC;
+}
+div.webtop_icon:hover{
+	margin:5px;
+	color:#fff;
+	background-color:#777;
+	cursor:pointer;
+	overflow:visible;
+	z-index:50;
+	height:auto;
+}
