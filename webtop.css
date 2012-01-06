@@ -212,10 +212,18 @@ html, body {
 	border-right-color:#555;
 	border-bottom-color:#333;
 	border-left-color:#bbb;
-	border-radius:16px;
 	-moz-border-radius:16px;
+	border-radius:16px;
 	color:#000;
 	height:18px;
+}
+.webtop_window_bar *{
+	-moz-border-radius:16px;
+	border-radius:16px;
+}
+.webtop_window_bar>*{
+	padding-left:1em;
+	padding-top:3px;
 }
 .webtop_window_bar>div{
 	width:100px;

@@ -10,12 +10,23 @@
 		<script type="text/javascript">
 			$(document).ready(function(){
 				var $webtop = $('#webtop').webtop(); //please note $('#webtop') is a jquery object, $webtop is not
-				var $w1 = $webtop.addWindow({width:'500px',height:'300px',title:'Lorem ipsum'});
+				var $w1 = $webtop.addWindow({
+					width:'500px',
+					height:'300px',
+					title:'Lorem ipsum',
+					headerClass:'myheader',
+					barClass:'mybar'
+				});
 				var $w2 = $webtop.addWindow({width:'200px',height:'100px',title:'Empty'});
 				$w1.getBody().append($('#someText').show('slow'));
 			});
 		</script>
-
+		<style type="text/css">
+			.myheader, .mybar{
+				background-color:#663333;
+				height:100%;
+			}
+		</style>
 	</head>
 	<!-- ++++++++++++++++++++++++++++++++++++++++++++++body+++++++++++++++++++++++++++++++++++++++++++++++ -->
 	<body id="main">
