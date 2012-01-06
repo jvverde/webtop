@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>WebTop</title>
+		<link rel="stylesheet" type="text/css" media="screen" href="../3rd-party/jquery-ui/css/sunny/jquery-ui-1.8.9.custom.css"/>
+		<script src="../3rd-party/jquery/jquery.js" type="text/javascript" charset="UTF-8"> </script>
+		<script src="../3rd-party/jquery-ui/js/jquery-ui-1.8.9.custom.min.js" type="text/javascript" charset="UTF-8">//don't remove</script>
+		<script type="text/javascript" src="../jquery.webtop.js" charset="UTF-8"></script>
+		<link rel="stylesheet" type="text/css" media="screen" href="../webtop.css" />
+		<script type="text/javascript">
+			$(document).ready(function(){
+				var $webtop = $('#webtop').webtop(); //please note $('#webtop') is a jquery object, $webtop is not
+				var $w1 = $webtop.addWindow({width:'500px',height:'300px',title:'Lorem ipsum'});
+				var $w2 = $webtop.addWindow({width:'200px',height:'100px',title:'Empty'});
+				$w1.getBody().append($('#someText').show('slow'));
+			});
+		</script>
+
+	</head>
+	<!-- ++++++++++++++++++++++++++++++++++++++++++++++body+++++++++++++++++++++++++++++++++++++++++++++++ -->
+	<body id="main">
+		<div id="webtop">If you want you may put here your wallpaper, but this text is not shown (in this example) as it will be black on black background</div>
+		<!-- look for a start button at bottom of your page -->
+		<div style="display:none" id="someText">
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quis arcu ac nunc sodales euismod. Nunc vel arcu ut ligula dapibus ultricies quis ut quam. Phasellus fringilla tempor dignissim. Sed a egestas nulla. Curabitur ut quam blandit nulla sollicitudin accumsan id luctus nisl. Nam ante diam, ornare id luctus non, rutrum vitae elit. Vestibulum vitae leo in risus faucibus dapibus laoreet id justo. Sed at tortor elit. Vestibulum vulputate purus et est malesuada rutrum. Integer at mauris ut purus fermentum placerat volutpat et urna.
+
+Vestibulum eleifend libero dictum leo semper ut faucibus arcu malesuada. Quisque sollicitudin, diam quis ultricies luctus, tortor orci sodales nibh, et dignissim arcu leo a risus. Ut ullamcorper, dolor ut pellentesque ultrices, quam dui fringilla nunc, vel fermentum ligula est sit amet arcu. Etiam egestas bibendum felis eget tempor. Ut purus risus, vestibulum ac varius faucibus, euismod id risus. Etiam condimentum scelerisque ante eget mattis. Donec viverra iaculis massa.
+
+Sed sit amet purus erat. Ut sit amet ipsum non mauris pellentesque lacinia egestas sed neque. Sed in tellus est. Suspendisse potenti. Maecenas diam libero, varius in ultricies rutrum, malesuada eget urna. Etiam ante diam, iaculis sit amet consequat vel, eleifend ac sapien. Phasellus vitae nulla ac libero lacinia bibendum id sit amet nibh. Duis risus diam, tempor in bibendum ut, facilisis et nunc. Etiam et nibh a lorem accumsan rhoncus. Fusce mattis nibh interdum neque aliquet rutrum. Ut in ipsum sed justo cursus malesuada a nec quam.
+
+Morbi hendrerit pellentesque nibh at adipiscing. In aliquam sem ut elit placerat in sollicitudin felis auctor. Vivamus euismod, arcu vel lobortis molestie, odio nisl laoreet dolor, non lobortis eros velit in purus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec in magna augue, id pharetra ipsum. Donec feugiat blandit nulla, vitae sollicitudin lacus sollicitudin non. Nunc vitae ante lacus, ut fermentum leo. Ut quis tortor massa. Pellentesque vehicula sollicitudin fringilla. Sed aliquam urna eu dolor imperdiet at lacinia nunc tempor. Sed at felis at ligula pulvinar varius non ut magna. Ut turpis lacus, adipiscing sed luctus in, iaculis in quam. Nullam luctus dui a lacus ullamcorper rutrum. Duis ac sem vel odio accumsan auctor sed sed leo.
+
+Nullam a ligula velit, vel molestie lorem. Vestibulum scelerisque mollis lectus, vitae vulputate tortor tempus eu. Sed ultricies mauris at libero facilisis non ultrices nunc viverra. Ut ac metus eu dolor ultrices varius eu a lectus. Etiam scelerisque dui eget orci sollicitudin convallis. Integer vehicula, velit sit amet sagittis elementum, velit dolor ultricies ligula, vitae aliquet dolor quam eu turpis. Mauris a massa tortor.
+
+Morbi neque metus, congue a dignissim a, aliquet vitae urna. Morbi in tellus lacus, varius eleifend lectus. Nullam ac nibh sit amet ipsum auctor aliquet. Mauris non nibh quis dolor vulputate viverra nec quis augue. Donec euismod posuere tincidunt. Sed mi dui, aliquet et dictum in, eleifend quis sem. Nullam vulputate viverra tincidunt. Sed vel augue bibendum tellus egestas vulputate at non nisi. Vestibulum ac sem at metus ullamcorper blandit. Mauris nec erat ultrices nunc dapibus pulvinar eget convallis elit. Proin nec sodales lectus. Vestibulum porta, odio eu lacinia commodo, libero justo pretium leo, non porta nibh leo at est. Vestibulum vel nibh dolor, ut cursus quam. Mauris placerat odio in leo semper non hendrerit eros aliquam.
+
+Quisque ut risus ante. Vivamus consequat iaculis mauris, vel pharetra augue vestibulum et. Vivamus nisl ligula, porttitor non hendrerit sed, blandit et arcu. Aenean pretium varius arcu. Donec quam neque, dictum quis tempus sed, euismod in sapien. Phasellus interdum varius commodo. Curabitur eu neque dolor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+
+Aenean non placerat ligula. Donec iaculis dignissim condimentum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse non quam purus. Curabitur urna lectus, suscipit ut aliquet ac, venenatis nec turpis. Vivamus ut aliquam eros. In sed arcu nec elit varius mollis. Proin ligula tortor, tincidunt et fringilla quis, euismod sit amet massa. Nullam nec dui nunc, ultrices rhoncus nisl. Quisque eros nisl, ornare ut posuere sed, vestibulum quis urna. Phasellus imperdiet fermentum leo, vitae rhoncus dolor euismod in. In varius nisi nec nunc placerat hendrerit. Duis sollicitudin massa vel odio viverra commodo.
+
+Aenean eu dolor diam, condimentum luctus lorem. Sed at turpis ipsum, feugiat vulputate felis. Sed vel purus est. Aenean ultricies sollicitudin tempor. Ut faucibus, ligula sit amet pellentesque sollicitudin, nulla orci aliquet metus, vitae placerat est ipsum vel neque. Nullam in arcu massa. Nullam tempus, justo ut porttitor mattis, turpis libero tincidunt felis, vel hendrerit purus sem non dui. Cras pharetra, dui at ullamcorper molestie, magna ipsum venenatis quam, eget facilisis mi risus id ipsum. Aenean leo nulla, consectetur a ullamcorper et, euismod eu lectus. In hac habitasse platea dictumst. In hac habitasse platea dictumst.
+
+Suspendisse a urna ultricies dolor semper laoreet. Donec tempus semper urna, eu consequat urna gravida in. Mauris vel enim sit amet erat convallis tincidunt et et ipsum. Suspendisse fringilla sapien id nisi tincidunt ut viverra justo molestie. Sed ut risus libero, et vestibulum ante. Phasellus vel nulla et odio fringilla venenatis egestas a lorem. Aliquam at leo felis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Pellentesque eget lectus eu nibh fringilla cursus sed id turpis. 
+
+		</div>
+	</body>
+
+</html>
