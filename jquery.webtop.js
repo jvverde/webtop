@@ -212,9 +212,11 @@
 						width: $webtop_options.window.width,
 						height: $webtop_options.window.height,
 						minWidth:$webtop_options.window.minWidth,
-						minHeight:$webtop_options.window.minHeight,	
+						minHeight:$webtop_options.window.minHeight,
+						aspectRatio: false
 					},$o);
 					var $n = $nWindows++;
+
 					var $window = $('<div id = "webtop_window_' + $n + '" class="webtop_window"></div>').appendTo($workspace);
 					$window.width($options.width).height($options.height);
 					var $window_bar = $('<div id = "webtop_window_bar_' + $n + '" class="webtop_window_bar"></div>').appendTo($minimizebar);
@@ -267,23 +269,70 @@
 							$window.addClass('webtop_window_drag');
 						},
 						stop:function(){
+							$setPos();
 							$window.removeClass('webtop_window_drag');
 						},
 					}).resizable({
 						containment:'parent',
 						minHeight: $options.minHeight,
 						minWidth:$options.minWidth,
+						aspectRatio: $options.aspectRatio,
 						stop:function(ev,ui){
-							resize();
+							$setDim();	//update the Dimensions
+							$window.trigger('resize.webtop');
 						},
 						handles: 'all',
 						ghost:true,
 					}).click(function(){
-						push_window($window); //don't replace $window by $(this). It is not the same
+						push_window($window); //don't replace $window by $(this). It is not the same. $this is the webtop element not the window
 					});
-					function resize(){
+					var $setDim = function(){
+						$window.data('dim',{
+							w:$window.width(),
+							h:$window.height()
+						});
+					}
+					var $setPos = function(){
+						$window.data('pos',{
+							t:$window.position().top,
+							l:$window.position().left
+						});
+					}					
+					$setDim(); //store the Dimensions
+					$setPos();
+					var $resize = function(){
+						var $ww = $workspace.width();	//window width
+						var $wh = $workspace.height();
+						var $vw = $ww;								//viewport width
+						var $vh = $wh;
+						if ($options.aspectRatio){		//compute new viewport dimensions
+							var $ar = parseInt($options.width,10) / parseInt($options.height,10);
+							$vw = Math.min($ww, $wh * $ar);
+							$vh = Math.min($wh, $ww / $ar);
+						}
+						var $dim = $window.data('dim');
+						var $ow = $dim.w;							//old width
+						var $oh = $dim.h;
+						var $cw = $window.width();		//current width
+						var $ch = $window.height();
+						var $nw = Math.min($vw,Math.max($ow,$cw));	//new width
+						var $nh = Math.min($vh,Math.max($oh,$ch));
+						$window.width($nw);
+						$window.height($nh);
+						
+						var $ct = $window.position().top;										//current top
+						var $cl = $window.position().left;
+						var $ot = $window.data('pos').t;										//old top
+						var $ol = $window.data('pos').l;
+						var $nt = Math.min($wh - $nh,Math.max($ct,$ot));		//new top
+						var $nl = Math.min($ww - $nw,Math.max($cl,$ol));
+						$window.css('top',$nt);
+						$window.css('left',$nl);
+				
 						$options.events.afterWindowResize();
 					};
+					$window.bind('resize.webtop',$resize);
+					$resize();
 					var $restoreDim = {};
 					var $webtop_window = {
 						restore: function(){
