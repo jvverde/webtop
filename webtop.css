@@ -212,18 +212,19 @@ html, body {
 	border-right-color:#555;
 	border-bottom-color:#333;
 	border-left-color:#bbb;
-	-moz-border-radius:16px;
-	border-radius:16px;
+	---moz-border-radius:8px;
+	--border-radius:8px;
 	color:#000;
 	height:18px;
 }
 .webtop_window_bar *{
-	-moz-border-radius:16px;
-	border-radius:16px;
+	---moz-border-radius:8px;
+	--border-radius:8px;
 }
 .webtop_window_bar>*{
 	padding-left:1em;
 	padding-top:3px;
+	height:14px;
 }
 .webtop_window_bar>div{
 	width:100px;
@@ -259,6 +260,12 @@ div.webtop_window_bar:hover{
 	padding-left:5px:
 	color:#fff;
 	cursor:move;
+}
+.webtop_window_header>div:first-child{
+	height:22px;
+	padding-left:1em;
+	vertical-align:middle;
+	line-height:22px;
 }
 .webtop_window_header, .webtop_window_header *{ /* the header and everything inside must have round corners */
 	border-top-right-radius:8px;

@@ -113,6 +113,7 @@
 					$(this).data('webtop').webtop_window.maximize();
 				}
 			});
+			$('.webtop_window').not('.webtop_window_maximize').not('.webtop_window_minimize').trigger('resize.webtop');
 		});
 		//aux functions to be used by window stuff
 		function push_window($win){ //put $win at front
@@ -198,7 +199,7 @@
 					$content.find('span').html($icon_options.label).end().find('img').attr('src',$icon_options.icon);
 				}
 			})(),	
-			addWindow: (function(){
+			addWindow: (function(){ //create a new window
 				var $nWindows = 0;
 				return function($o){
 					var $options = $.extend(true,{
